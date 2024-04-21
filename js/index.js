@@ -15,6 +15,22 @@ let total = {
   burger: 0,
   piza: 0,
 };
+// let foodInfo = {
+//   burger: {
+//     id: 1,
+//     name: "Бургер",
+//     price: 500,
+//     brand: "Яндекс",
+//     category: "Еда",
+//   },
+//   piza: {
+//     id: 2,
+//     name: "Пицца",
+//     price: 1000,
+//     brand: "Яндекс",
+//     category: "Еда",
+//   },
+// };
 
 cartButton.addEventListener("click", () => {
   if (cartForm.style.transform === "translate(-50%, -50%) scale(0)") {
