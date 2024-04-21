@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Piza&Burger</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <!-- Yandex.Metrika counter -->
@@ -39,6 +39,7 @@
         trackLinks: true,
         accurateTrackBounce: true,
         webvisor: true,
+        ecommerce: "dataLayer",
       });
     </script>
     <noscript
@@ -78,14 +79,25 @@
       <div class="header_wrapp">
         <nav class="navbar">
           <ul class="menu-list">
-            <li>
-              <button class="login-button">Login</button>
+            <li class="cart">
+              <button class="cart-button button_menu">Cart</button>
             </li>
-            <li><button class="sign-up-button">Sign up</button></li>
+            <li>
+              <button class="login-button button_menu">Login</button>
+            </li>
+            <li><button class="sign-up-button button_menu">Sign up</button></li>
           </ul>
         </nav>
       </div>
     </header>
+    <form
+      class="cart-form"
+      style="transform: translate(-50%, -50%) scale(0)"
+      action=""
+    >
+      <div class="order-Button_Wrapp">
+        <button type="submit">Order</button></div>
+    </form>
     <form
       class="login-form"
       style="transform: translate(-50%, -50%) scale(0)"
@@ -106,6 +118,18 @@
       <input type="password" placeholder="Repeat password" required />
       <button type="submit">Submit</button>
     </form>
+    <div class="menu_wrapp">
+      <div class="burger card">
+        <div>Burger</div>
+        <div class="price">500 Rub</div>
+        <button class="card-button">Add to cart</button>
+      </div>
+      <div class="piza card">
+        <div>Piza</div>
+        <div class="price">1000 Rub</div>
+        <button class="card-button">Add to cart</button>
+      </div>
+    </div>
     <script src="./js/index.js"></script>
   </body>
 </html>
