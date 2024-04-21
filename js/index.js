@@ -54,6 +54,8 @@ signUpButton.addEventListener("click", () => {
   }
 });
 
+window.dataLayer = window.dataLayer || [];
+
 menuWrapp.addEventListener("click", (event) => {
   if (
     event.target.classList.contains("card-button") &&
@@ -61,7 +63,7 @@ menuWrapp.addEventListener("click", (event) => {
   ) {
     quantity.burger += 1;
     total.burger += 500;
-    document.dataLayer.push({
+    window.dataLayer.push({
       ecommerce: {
         currencyCode: "RUB",
         add: {
