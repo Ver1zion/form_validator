@@ -6,6 +6,7 @@ const loginForm = document.querySelector(".login-form");
 const signUpForm = document.querySelector(".sign-up-form");
 const menuWrapp = document.querySelector(".menu_wrapp");
 const orderButtonWrapp = document.querySelector(".order-Button_Wrapp");
+const sendOrderButton = document.querySelector(".send_order");
 let quantity = {
   burger: 0,
   piza: 0,
@@ -55,6 +56,50 @@ signUpButton.addEventListener("click", () => {
 });
 
 window.dataLayer = window.dataLayer || [];
+
+sendOrderButton.addEventListener("click", () => {
+  let purchaseInfo = {
+    ecommerce: {
+      currencyCode: "RUB",
+      purchase: {
+        actionField: {
+          id: "TEST",
+          revenue: 0,
+        },
+        products: [],
+      },
+    },
+  };
+
+  if (quantity.burger > 0 || quantity.piza > 0) {
+    purchaseInfo.ecommerce.purchase.actionField.revenue =
+      total.burger + total.piza;
+
+    if (quantity.burger > 0) {
+      purchaseInfo.ecommerce.purchase.products.push({
+        id: "1",
+        name: "Бургер",
+        price: 500,
+        brand: "Яндекс",
+        category: "Еда",
+        quantity: quantity.burger,
+      });
+    }
+
+    if (quantity.piza > 0) {
+      purchaseInfo.ecommerce.purchase.products.push({
+        id: "2",
+        name: "Пицца",
+        price: 1000,
+        brand: "Яндекс",
+        category: "Еда",
+        quantity: quantity.piza,
+      });
+    }
+
+    window.dataLayer.push(purchaseInfo);
+  }
+});
 
 menuWrapp.addEventListener("click", (event) => {
   if (
@@ -106,7 +151,6 @@ menuWrapp.addEventListener("click", (event) => {
   ) {
     quantity.piza += 1;
     total.piza += 1000;
-    window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       ecommerce: {
         currencyCode: "RUB",
