@@ -106,6 +106,24 @@ menuWrapp.addEventListener("click", (event) => {
   ) {
     quantity.piza += 1;
     total.piza += 1000;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      ecommerce: {
+        currencyCode: "RUB",
+        add: {
+          products: [
+            {
+              id: "2",
+              name: "Пицца",
+              price: 1000,
+              brand: "Яндекс",
+              category: "Еда",
+              quantity: 1,
+            },
+          ],
+        },
+      },
+    });
     console.log(quantity.piza);
     let quantityPizas = cartForm.querySelector(".quantity_pizas");
     let totalSum = cartForm.querySelector(".total");
