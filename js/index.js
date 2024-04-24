@@ -179,7 +179,6 @@ menuWrapp.addEventListener("click", (event) => {
               brand: "Яндекс",
               category: "Еда",
               quantity: 1,
-              testParam: whatIsThat,
             },
           ],
         },
