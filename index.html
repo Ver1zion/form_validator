@@ -77,15 +77,9 @@
   <body>
     <header class="header">
       <div class="header_wrapp">
-        <script>
-          var goalParams = {
-            order_price: 20000,
-            currency: "RUB",
-          };
-        </script>
         <a
           href="https://yandex.ru/support/"
-          onclick="ym(97087644, 'extLink', 'https://yandex.ru/support/', goalParams)"
+          onclick="ym(97087644, 'extLink', 'https://yandex.ru/support/', {order_price: '20000', currency: 'RUB'})"
           >Справка</a
         >
         <nav class="navbar">
