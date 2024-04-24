@@ -77,22 +77,17 @@
   <body>
     <header class="header">
       <div class="header_wrapp">
-        <button
-          onclick="ym(97087644,'reachGoal','doxod', {
-          order_price: 20000,
-          currency: "RUB"
-       };)"
-        >knopka</button>
-        <!-- <a
+        <script>
+          var goalParams = {
+            order_price: 1000.35,
+            currency: "RUB",
+          };
+        </script>
+        <a
           href="https://yandex.ru/support/"
-          onclick="var goalParams =
-        {
-           order_price: 20000,
-           currency: 'RUB'
-        };
-        ym(97087644, 'extLink', 'https://yandex.ru/support/', goalParams)"
+          onclick="ym(97087644, 'extLink', 'https://yandex.ru/support/', goalParams)"
           >Справка</a
-        > -->
+        >
         <nav class="navbar">
           <ul class="menu-list">
             <li class="cart">
