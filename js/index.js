@@ -34,7 +34,10 @@ let total = {
 
 cartButton.addEventListener("click", () => {
   if (cartForm.style.transform === "translate(-50%, -50%) scale(0)") {
-    ym(97087644, 'hit', '/cart')
+    ym(97087644, "hit", "https://ver1zion.github.io/form_validator/cart", {
+      title: "Корзина",
+      referer: "https://ver1zion.github.io/form_validator/",
+    });
     cartForm.style.transform = "translate(-50%, -50%) scale(1)";
     cartForm.style.zIndex = "10";
     signUpForm.style.transform = "translate(-50%, -50%) scale(0)";
