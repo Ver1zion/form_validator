@@ -34,6 +34,7 @@ let total = {
 
 cartButton.addEventListener("click", () => {
   if (cartForm.style.transform === "translate(-50%, -50%) scale(0)") {
+    ym(97087644, 'hit', '/cart')
     cartForm.style.transform = "translate(-50%, -50%) scale(1)";
     cartForm.style.zIndex = "10";
     signUpForm.style.transform = "translate(-50%, -50%) scale(0)";
