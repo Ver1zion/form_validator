@@ -208,3 +208,7 @@ menuWrapp.addEventListener("click", (event) => {
     quantityPizas.innerText = `Piza: ${quantity.piza}`;
   }
 });
+
+ym(97087644, "userParams", {
+  status: unauthorized,
+});
