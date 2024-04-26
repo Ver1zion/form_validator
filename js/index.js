@@ -212,3 +212,8 @@ menuWrapp.addEventListener("click", (event) => {
 ym(97087644, "userParams", {
   status: "unauthorized",
 });
+
+ym(97087644, "params", {
+  Platform: navigator.platform,
+  DeviceType: navigator.userAgentData.mobile,
+});
