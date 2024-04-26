@@ -215,5 +215,5 @@ ym(97087644, "userParams", {
 
 ym(97087644, "params", {
   Platform: navigator.userAgentData.platform,
-  DeviceType: navigator.userAgentData.mobile,
+  Mobile: navigator.userAgentData.mobile,
 });
