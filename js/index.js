@@ -210,5 +210,5 @@ menuWrapp.addEventListener("click", (event) => {
 });
 
 ym(97087644, "userParams", {
-  status: unauthorized,
+  status: 'unauthorized',
 });
