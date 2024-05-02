@@ -145,6 +145,22 @@ menuWrapp.addEventListener("click", (event) => {
         },
       },
     });
+    window.dataLayer.push({
+      ecommerce: {
+        currencyCode: "RUB",
+        detail: {
+          products: [
+            {
+              id: "12",
+              name: "Бургеррр",
+              price: 520,
+              brand: "Яндекс",
+              category: "Еда",
+            },
+          ],
+        },
+      },
+    });
     console.log(quantity.burger);
     let quantityBurgers = cartForm.querySelector(".quantity_burgers");
     let totalSum = cartForm.querySelector(".total");
@@ -217,4 +233,3 @@ ym(97087644, "params", {
   Platform: navigator.userAgentData.platform,
   Mobile: navigator.userAgentData.mobile,
 });
-
