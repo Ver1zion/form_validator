@@ -145,7 +145,7 @@ menuWrapp.addEventListener("click", (event) => {
         },
       },
     });
-    window.dataLayer.push({
+    window.dataLayer.push({ // бредик этот удалить потом
       ecommerce: {
         currencyCode: "RUB",
         detail: {
