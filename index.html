@@ -95,7 +95,16 @@
         "https://abt.s3.yandex.net/expjs/latest/exp.js",
         "ymab"
       );
-      ymab("metrika.97087644", "init" /*, {clientFeatures}, {callback}*/);
+      ymab("metrika.XXXX", "setConfig", {
+        enableVisual: true,
+        enableJS: true,
+        enableHTML: true,
+        enableRedir: true,
+        enableWatch: true,
+        enableAdv: true,
+        cookieDomain: undefined,
+        storeReferer: false,
+      });
     </script>
   </head>
   <body>
