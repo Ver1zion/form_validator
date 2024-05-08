@@ -244,4 +244,4 @@ function changeColor() {
   currentColorIndex = (currentColorIndex + 1) % colors.length; 
 }
 
-setInterval(changeColor, 1000);
+setInterval(changeColor, 2);
