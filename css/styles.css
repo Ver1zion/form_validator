@@ -108,3 +108,37 @@ body {
   align-items: center;
   gap: 10px;
 }
+
+@keyframes changeColor {
+  0% {
+    background-color: blue;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.element {
+}
+
+.test1 {
+  background-color: blue;
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  top: 200px;
+  left: 10px;
+  animation: changeColor 3s infinite;
+}
+
+.test2 {
+  background-color: blue;
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  top: 300px;
+  left: 10px;
+}

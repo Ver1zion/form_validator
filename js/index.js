@@ -145,7 +145,8 @@ menuWrapp.addEventListener("click", (event) => {
         },
       },
     });
-    window.dataLayer.push({ // бредик этот удалить потом
+    window.dataLayer.push({
+      // бредик этот удалить потом
       ecommerce: {
         currencyCode: "RUB",
         detail: {
@@ -233,3 +234,14 @@ ym(97087644, "params", {
   Platform: navigator.userAgentData.platform,
   Mobile: navigator.userAgentData.mobile,
 });
+
+const element = document.querySelector(".test2");
+const colors = ["blue", "green", "red"];
+let currentColorIndex = 0;
+
+function changeColor() {
+  element.style.backgroundColor = colors[currentColorIndex];
+  currentColorIndex = (currentColorIndex + 1) % colors.length; 
+}
+
+setInterval(changeColor, 1000);
