@@ -1,3 +1,16 @@
+   (function(m,e,t,r,i,k,a){m[i]=m[i]function(){(m[i].a=m[i].a[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(97087644, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        ecommerce:"dataLayer"
+   });
 const cartButton = document.querySelector(".cart-button");
 const loginButton = document.querySelector(".login-button");
 const signUpButton = document.querySelector(".sign-up-button");
@@ -241,7 +254,7 @@ let currentColorIndex = 0;
 
 function changeColor() {
   element.style.backgroundColor = colors[currentColorIndex];
-  currentColorIndex = (currentColorIndex + 1) % colors.length; 
+  currentColorIndex = (currentColorIndex + 1) % colors.length;
 }
 
 setInterval(changeColor, 2);
