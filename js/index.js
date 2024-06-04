@@ -239,9 +239,9 @@ const element = document.querySelector(".test2");
 const colors = ["blue", "green", "red"];
 let currentColorIndex = 0;
 
-function changeColor() {
-  element.style.backgroundColor = colors[currentColorIndex];
-  currentColorIndex = (currentColorIndex + 1) % colors.length;
-}
+// function changeColor() {
+//   element.style.backgroundColor = colors[currentColorIndex];
+//   currentColorIndex = (currentColorIndex + 1) % colors.length;
+// }
 
-setInterval(changeColor, 2);
+// setInterval(changeColor, 2);
