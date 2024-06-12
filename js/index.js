@@ -244,4 +244,58 @@ let currentColorIndex = 0;
 //   currentColorIndex = (currentColorIndex + 1) % colors.length;
 // }
 
-// setInterval(changeColor, 2);
+const datas = [
+  {
+    ecommerce: [
+      {
+        purchase: {
+          actionField: { id: "2415", revenue: "4900" },
+          products: [
+            {
+              id: "070-1",
+              name: 'Кожаная сумка "Becker"',
+              price: "4900",
+              category: "Сумки мужские",
+              position: 1,
+              quantity: 1,
+            },
+          ],
+        },
+        currencyCode: "RUB",
+      },
+    ],
+  },
+];
+
+function convertEcommerceArrayToObject(dataLayer) {
+  const newDataLayer = dataLayer.map((item) => {
+    if (item.ecommerce && Array.isArray(item.ecommerce)) {
+      const ecommerceObject = item.ecommerce.reduce((acc, curr) => {
+        return {
+          ...acc,
+          ...curr,
+        };
+      }, {});
+      return {
+        ...item,
+        ecommerce: ecommerceObject,
+      };
+    }
+    return item;
+  });
+  return newDataLayer;
+}
+
+const newDataLayer = convertEcommerceArrayToObject(datas);
+
+(window.dataLayer = window.dataLayer || []).push(...newDataLayer);
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const vqTestWrappElement = document.querySelector(".vq-test-wrapp");
+
+const randomId = getRandomInt(40000, 50000);
+
+vqTestWrappElement.id = randomId;
