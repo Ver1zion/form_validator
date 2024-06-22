@@ -108,15 +108,3 @@ body {
   align-items: center;
   gap: 10px;
 }
-
-@keyframes changeColor {
-  0% {
-    background-color: blue;
-  }
-  50% {
-    background-color: green;
-  }
-  100% {
-    background-color: red;
-  }
-}
