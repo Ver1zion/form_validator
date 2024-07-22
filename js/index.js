@@ -234,3 +234,67 @@ ym(97087644, "params", {
   Platform: navigator.userAgentData.platform,
   Mobile: navigator.userAgentData.mobile,
 });
+
+//
+const datas = [
+  {
+    ecommerce: [
+      {
+        currencyCode: "RUB",
+        purchase: {
+          actionField: { id: "TEST", revenue: 500 },
+          products: [
+            {
+              id: "1",
+              name: "Бургер",
+              price: 500,
+              brand: "Яндекс",
+              category: "Еда",
+              quantity: 1,
+            },
+          ],
+        },
+      },
+    ],
+  },
+];
+
+function convertEcommerceArrayToObject(dataLayer) {
+  dataLayer.forEach((item) => {
+    if (item.ecommerce && Array.isArray(item.ecommerce)) {
+      const ecommerceObject = item.ecommerce.reduce((acc, curr) => {
+        return {
+          ...acc,
+          ...curr,
+        };
+      }, {});
+      const ecommerceString = JSON.stringify(ecommerceObject);
+      const commandString = `(window.dataLayer = window.dataLayer || []).push({ ecommerce: ${ecommerceString} });`;
+      console.log(commandString);
+      return commandString;
+    }
+    return null;
+  });
+}
+
+convertEcommerceArrayToObject(datas);
+
+dataLayer.push({
+  ecommerce: [
+    {
+      currencyCode: "RUB",
+      purchase: {
+        actionField: { id: "TEST3", coupon: "Купон", revenue: 1000 },
+        products: [
+          {
+            id: "1",
+            name: "TEST",
+            price: 1000,
+            quantity: 1,
+          },
+        ],
+      },
+    },
+  ],
+});
+//
