@@ -37,6 +37,7 @@ cartButton.addEventListener("click", () => {
     ym(97087644, "hit", "https://ver1zion.github.io/form_validator/cart", {
       title: "Корзина",
       referer: "https://ver1zion.github.io/form_validator/",
+      params: { me: "hello" },
     });
     cartForm.style.transform = "translate(-50%, -50%) scale(1)";
     cartForm.style.zIndex = "10";
@@ -226,15 +227,15 @@ menuWrapp.addEventListener("click", (event) => {
   }
 });
 
-ym(97087644, "userParams", {
-  status: "unauthorized",
-});
+// ym(97087644, "userParams", {
+//   status: "unauthorized",
+// });
 
-ym(97087644, "params", {
-  Platform: navigator.userAgentData.platform,
-  Mobile: navigator.userAgentData.mobile,
-  Mobile_and_other: navigator.userAgentData.mobile + " hello",
-});
+// ym(97087644, "params", {
+//   Platform: navigator.userAgentData.platform,
+//   Mobile: navigator.userAgentData.mobile,
+//   Mobile_and_other: navigator.userAgentData.mobile + " hello",
+// });
 
 //
 const datas = [
