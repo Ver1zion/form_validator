@@ -237,6 +237,10 @@ menuWrapp.addEventListener("click", (event) => {
 //   Mobile_and_other: navigator.userAgentData.mobile + " hello",
 // });
 
+ym(97087644, "params", {
+  me: "hello",
+});
+
 //
 const datas = [
   {
