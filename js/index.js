@@ -243,15 +243,14 @@ const datas = [
       {
         currencyCode: "RUB",
         purchase: {
-          actionField: { id: "TEST", revenue: 500 },
+          actionField: { id: "9974691" },
           products: [
             {
-              id: "1",
-              name: "Бургер",
-              price: 500,
-              brand: "Яндекс",
-              category: "Еда",
+              id: "64814",
+              name: "Игровая приставка Sony PlayStation 5 Pro",
+              price: 79990,
               quantity: 1,
+              position: 1,
             },
           ],
         },
