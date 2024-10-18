@@ -67,6 +67,7 @@
         trackLinks: true,
         accurateTrackBounce: true,
         webvisor: true,
+        trackHash: true,
         ecommerce: "dataLayer",
       });
     </script>
@@ -207,12 +208,20 @@
         <div class="price">500 Rub</div>
         <button class="card-button">Add to cart</button>
       </div>
-      <div class="piza card">
+      <div class="piza card" id="test" style="margin-top: 500px;">
         <div>Pizza</div>
         <div class="price">1000 Rub</div>
         <button class="card-button" onclick="ym(97087644,'reachGoal','doxod')">
           Add to cart
         </button>
+        <script>
+          document
+            .getElementById("test")
+            .addEventListener("click", function () {
+              window.location.hash = "test"; // добавляем хеш к URL
+              document.getElementById("test").scrollIntoView(); // перемещаемся к элементу
+            });
+        </script>
       </div>
     </div>
     <script src="./js/index.js"></script>
