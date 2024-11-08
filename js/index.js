@@ -243,14 +243,13 @@ const datas = [
       {
         currencyCode: "RUB",
         purchase: {
-          actionField: { id: "9974691" },
+          actionField: { id: "1234" },
           products: [
             {
-              id: "64814",
-              name: "Игровая приставка Sony PlayStation 5 Pro",
-              price: 79990,
+              id: "1",
+              name: "тест",
+              price: 500,
               quantity: 1,
-              position: 1,
             },
           ],
         },
@@ -288,8 +287,8 @@ dataLayer.push({
         products: [
           {
             id: "1",
-            name: "TEST",
-            price: 1000,
+            name: "тест",
+            price: 500,
             quantity: 1,
           },
         ],

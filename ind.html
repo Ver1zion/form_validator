@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>График Работы</title>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  .weekend {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<div id="schedule"></div>
+
+<script>
+function generateWorkSchedule(startDate, endDate) {
+    const schedule = [];
+    const workDays = 2;
+    const offDays = 2;
+    let isWorking = false;
+    let cycleDayCount = 0;
+
+    const currentDate = new Date(startDate);
+    const end = new Date(endDate);
+
+    while (currentDate <= end) {
+        schedule.push({
+            date: new Date(currentDate),
+            isWorking: isWorking
+        });
+
+        cycleDayCount++;
+        if ((isWorking && cycleDayCount === workDays) || (!isWorking && cycleDayCount === offDays)) {
+            isWorking = !isWorking;
+            cycleDayCount = 0;
+        }
+        
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    return schedule;
+}
+
+function renderScheduleTable(startDate, endDate) {
+    const schedule = generateWorkSchedule(startDate, endDate);
+    const scheduleDiv = document.getElementById("schedule");
+    
+    let currentMonth = schedule[0].date.getMonth();
+    let table = document.createElement("table");
+
+    schedule.forEach((entry, index) => {
+        const date = entry.date;
+        const isWorking = entry.isWorking;
+        
+        if (date.getMonth() !== currentMonth || index === 0) {
+            if (index !== 0) {
+                scheduleDiv.appendChild(table);
+            }
+            currentMonth = date.getMonth();
+            table = document.createElement("table");
+
+            const monthHeader = document.createElement("caption");
+            monthHeader.textContent = date.toLocaleString("ru-RU", { month: "long", year: "numeric" });
+            table.appendChild(monthHeader);
+
+            const headerRow = document.createElement("tr");
+            ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"].forEach(day => {
+                const th = document.createElement("th");
+                th.textContent = day;
+                headerRow.appendChild(th);
+            });
+            table.appendChild(headerRow);
+
+            const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+            const offset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
+
+            const initialRow = document.createElement("tr");
+            for (let i = 0; i < offset; i++) {
+                initialRow.appendChild(document.createElement("td"));
+            }
+            table.appendChild(initialRow);
+        }
+
+        const row = table.lastElementChild;
+        if (row.children.length === 7) {
+            table.appendChild(document.createElement("tr"));
+        }
+
+        const cell = document.createElement("td");
+        cell.textContent = date.getDate();
+        if (!isWorking) {
+            cell.classList.add("weekend");
+        }
+        table.lastElementChild.appendChild(cell);
+    });
+
+    scheduleDiv.appendChild(table);
+}
+
+renderScheduleTable("2024-11-05", "2025-12-31");
+</script>
+
+</body>
+</html>
