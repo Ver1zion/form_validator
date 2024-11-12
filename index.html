@@ -36,106 +36,40 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-      (function (m, e, t, r, i, k, a) {
-        m[i] =
-          m[i] ||
-          function () {
-            (m[i].a = m[i].a || []).push(arguments);
-          };
-        m[i].l = 1 * new Date();
-        for (var j = 0; j < document.scripts.length; j++) {
-          if (document.scripts[j].src === r) {
-            return;
-          }
-        }
-        (k = e.createElement(t)),
-          (a = e.getElementsByTagName(t)[0]),
-          (k.async = 1),
-          (k.src = r),
-          a.parentNode.insertBefore(k, a);
-      })(
-        window,
-        document,
-        "script",
-        "https://mc.yandex.ru/metrika/tag.js",
-        "ym"
-      );
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter97087644 = new Ya.Metrika({
+                  id:97087644,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true,
+                  trackHash:true,
+                  ecommerce:"dataLayer"
+              });
+          } catch(e) { }
+      });
 
-      ym(97087644, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true,
-        trackHash: true,
-        ecommerce: "dataLayer",
-      });
-    </script>
-    <noscript
-      ><div>
-        <img
-          src="https://mc.yandex.ru/watch/97087644"
-          style="position: absolute; left: -9999px"
-          alt=""
-        /></div
-    ></noscript>
-    <!-- /Yandex.Metrika counter -->
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-MPTF6VWK");
-    </script>
-    <!-- End Google Tag Manager -->
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-MPTF6VWK"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <!-- Varioqub experiments -->
-    <script type="text/javascript">
-      (function (e, x, pe, r, i, me, nt) {
-        (e[i] =
-          e[i] ||
-          function () {
-            (e[i].a = e[i].a || []).push(arguments);
-          }),
-          (me = x.createElement(pe)),
-          (me.async = 1),
-          (me.src = r),
-          (nt = x.getElementsByTagName(pe)[0]),
-          nt.parentNode.insertBefore(me, nt);
-      })(
-        window,
-        document,
-        "script",
-        "https://abt.s3.yandex.net/expjs/latest/exp.js",
-        "ymab"
-      );
-      ymab("metrika.97087644", "setConfig", {
-        enableVisual: true,
-        enableJS: true,
-        enableHTML: true,
-        enableRedir: true,
-        enableWatch: true,
-        enableAdv: true,
-        cookieDomain: undefined,
-        storeReferer: false,
-      });
-      ymab("metrika.97087644", "init" /*, {clientFeatures}, {callback}*/);
-    </script>
+      var n = d.getElementsByTagName("script")[0],
+          x = "https://mc.yandex.ru/metrika/watch.js",
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      for (var i = 0; i < document.scripts.length; i++) {
+          if (document.scripts[i].src === x) { return; }
+      }
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = x;
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/97087644" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
   </head>
   <body>
     <header class="header">
@@ -223,6 +157,48 @@
         <div class="price">500 Rub</div>
         <button class="card-button">Add to cart</button>
       </div>
+      <div
+        id="editable-div"
+        contenteditable="true"
+        style="height: 400px; width: 400px; background-color: white"
+      >
+        <p style="width: 100%; height: 100%"></p>
+      </div>
+      <script>
+        const forbiddenWords = ["декрет", "конченый", "рабы"];
+        let editableDiv =
+          document.querySelector(".cke_editable") ||
+          document.querySelector(".yfm-editor");
+        let initialStyle = getComputedStyle(editableDiv);
+        let initialBackgroundColor = initialStyle.backgroundColor;
+
+        function containsWords(targetElement, words) {
+          // Получаем весь текст внутри элемента и разделяем его на слова
+          const textContent = targetElement.textContent.toLowerCase();
+          const wordsInText = textContent.split(/\s+/); // Разделяем текст по пробелам
+
+          // Проверяем, содержит ли текст одно из запрещенных слов
+          return wordsInText.some((word) => words.includes(word));
+        }
+
+        editableDiv.addEventListener("input", () => {
+          if (containsWords(editableDiv, forbiddenWords)) {
+            // Если найдено запрещенное слово, меняем фон на красный
+            editableDiv.style.setProperty(
+              "background-color",
+              "red",
+              "important"
+            );
+          } else {
+            // Если запрещенных слов нет, восстанавливаем исходные стили
+            editableDiv.style.setProperty(
+              "background-color",
+              initialBackgroundColor,
+              "important"
+            );
+          }
+        });
+      </script>
       <div class="piza card" id="test" style="margin-top: 500px">
         <div>Pizza</div>
         <div class="price">1000 Rub</div>
